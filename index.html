@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity Water — Be the Generation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#">
+        <img class="brand-logo" src="images/water-can-transparent.png" alt="Charity Water logo" />
+        Charity Water
+      </a>
+      <nav class="site-nav">
+        <a href="#why-water">Why Clean Water Matters</a>
+        <a href="#projects">Our Past Projects</a>
+        <a href="#team">Meet our Team</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary open-donate" href="#">Donate Now</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+      <img src="images/hero-1.jpg" alt="Community carrying pipe" />
+    </div>
+
+    <div class="hero-content container">
+      <h1>Be the Generation That Ends the Water Crisis.</h1>
+      <p>
+        Inspire change on campus and beyond with every action you take.
+        Charity Water empowers college students to lead impactful initiatives—
+        turning passion into real, global change.
+      </p>
+      <a class="btn btn-primary open-donate" href="#">Donate Now</a>
+    </div>
+
+    <!-- Equal-cropped image pair under the subline & CTA -->
+    <div class="hero-bottom">
+      <figure class="tile">
+        <img src="images/hero-2.jpg" alt="Woman collecting water" />
+      </figure>
+      <figure class="tile">
+        <img src="images/hero-3.jpg" alt="Child washing face" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHY CLEAN WATER -->
+  <section id="why-water" class="why-water">
+    <div class="container why-grid">
+      <div class="why-text">
+        <div class="info-badge">Why Clean Water Matters</div>
+        <h3>Access to Clean Water Transforms Communities</h3>
+        <p class="muted">
+          Clean, safe drinking water unlocks health, education, and economic opportunity.
+          Without it, families spend hours collecting unsafe water, students miss class due
+          to illness, and communities struggle to grow. Your support funds proven, local
+          solutions that last.
+        </p>
+      </div>
+      <figure class="why-media">
+        <img src="images/clean-vs-dirty.jpg" alt="Two glasses—dirty vs. clean water">
+        <figcaption>Clean vs. dirty water — the difference your gift makes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER (above donate) -->
+  <section id="newsletter" class="newsletter">
+    <div class="container news-card">
+      <h2>Sign up for the Impact Newsletter</h2>
+      <p class="muted">Monthly stories, project updates, and where your donation goes.</p>
+      <form id="newsletter-form" class="news-form" action="#" method="post">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@university.edu" required />
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+      </form>
+      <p class="tiny muted">We respect your privacy. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- DONATE (bottom section) -->
+  <section id="donate" class="donate container">
+    <h2>Donate Monthly</h2>
+    <p class="muted">Choose an amount. You’ll receive monthly updates showing exactly where your gift goes.</p>
+    <div class="amounts">
+      <button class="chip">$5 / mo</button>
+      <button class="chip">$10 / mo</button>
+      <button class="chip">$15 / mo</button>
+      <button class="chip">$20 / mo</button>
+      <button class="chip">$25 / mo</button>
+    </div>
+    <a id="continue-donate" class="btn btn-primary btn-wide" href="#">Continue</a>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 Charity Water</div>
+  </footer>
+
+  <!-- DONATE OVERLAY (8s brown -> blue + ripple on return) -->
+  <aside class="donate-overlay" role="dialog" aria-modal="true" aria-labelledby="donate-title">
+    <div class="donate-inner">
+      <h2 id="donate-title">Thank you for your generosity 💛</h2>
+      <p>We’ll guide you through donating in the next step. In the meantime, here’s a reminder of what clean water means.</p>
+      <button type="button" class="btn btn-ghost return-btn">Return to page</button>
+    </div>
+  </aside>
+
+  <!-- NEWSLETTER GRATITUDE OVERLAY -->
+  <aside class="newsletter-overlay" role="dialog" aria-modal="true" aria-labelledby="nl-title">
+    <div class="newsletter-inner">
+      <h2 id="nl-title">Thank you for signing up! 🙏</h2>
+      <p class="nl-lead">
+        We’re grateful for your commitment to <strong>continuing your education</strong> on the importance of clean and safe
+        drinking water—and for your support of <strong>Charity Water</strong>.
+      </p>
+      <button type="button" class="btn btn-ghost nl-close">Back to site</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

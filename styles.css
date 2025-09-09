@@ -1,1 +1,173 @@
+:root{
+  --ink-900:#1A1A1A;
+  --ink-700:#3b3b3b;
+  --ink-600:#2a2a2a;
+  --ink-500:#787576;
+  --accent:#bf6c46;
+  --white:#ffffff;
 
+  --dirty:#5a381e;  /* brown */
+  --clean:#165a8a;  /* blue */
+}
+
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--white);
+  background:var(--ink-900);
+  line-height:1.6;
+}
+img{max-width:100%;display:block;height:auto;object-fit:cover}
+.container{width:min(92%,1080px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px)}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(26,26,26,.9);
+  border-bottom:1px solid var(--ink-600);
+  backdrop-filter:saturate(115%) blur(6px);
+}
+.header-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800}
+.brand-logo{width:28px;height:28px;object-fit:contain}
+.site-nav{display:flex;align-items:center;gap:18px}
+.site-nav a{color:#fff;text-decoration:none;font-weight:600}
+.site-nav a:hover{color:var(--accent)}
+
+/* Buttons */
+.btn{display:inline-block;font-weight:700;border-radius:12px;padding:12px 18px;text-decoration:none;text-align:center;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;border:1px solid #444;color:#fff}
+.btn-wide{width:100%;max-width:420px}
+
+/* Hero */
+.hero-top img{width:100%;height:50vh}
+.hero-content{text-align:center;padding:40px 20px}
+.hero-content h1{font-size:clamp(28px,5vw,52px);margin:0 0 12px}
+.hero-content p{color:var(--ink-500);max-width:60ch;margin:0 auto 20px}
+
+/* Equal-cropped image pair */
+.hero-bottom{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.hero-bottom .tile{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid #2a2a2a;
+  aspect-ratio: 16 / 10; /* uniform shape on desktop */
+}
+.hero-bottom .tile img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+}
+@media (max-width:768px){
+  .hero-top img{height:40vh}
+  .hero-bottom{grid-template-columns:1fr}
+  .hero-bottom .tile{aspect-ratio: 16 / 11}
+}
+
+/* Why Clean Water */
+#why-water{scroll-margin-top:84px}
+.why-water{padding:48px 0;border-top:1px solid var(--ink-600)}
+.why-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
+.info-badge{
+  display:inline-block;background:#222;border:1px solid #383838;color:#eaeaea;
+  border-radius:999px;padding:6px 10px;font-size:12px;margin-bottom:12px
+}
+.why-text h3{margin:0 0 10px;font-size:clamp(22px,3.2vw,34px);line-height:1.25}
+.why-text .muted{color:var(--ink-500);font-size:1.05rem}
+.why-media{justify-self:end;max-width:520px}
+.why-media img{border-radius:12px;border:1px solid var(--ink-600)}
+.why-media figcaption{font-size:12px;color:#a8a8a8;margin-top:6px}
+@media (max-width:900px){
+  .why-grid{grid-template-columns:1fr}
+  .why-media{justify-self:stretch;max-width:none}
+}
+
+/* Newsletter */
+.newsletter{padding:40px 0}
+.news-card{
+  border:1px solid var(--ink-600);border-radius:12px;background:#141414;
+  padding:20px;max-width:720px;margin-inline:auto;text-align:center
+}
+.news-card h2{margin:0 0 6px}
+.news-card .muted{color:var(--ink-500)}
+.news-form{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:12px}
+.news-form input{background:#101010;color:#fff;border:1px solid #2e2e2e;border-radius:10px;padding:12px}
+@media (max-width:640px){.news-form{grid-template-columns:1fr}}
+.tiny{font-size:12px}
+
+/* Donate */
+.donate{padding:60px 20px;text-align:center;border-top:1px solid var(--ink-600)}
+.muted{color:var(--ink-500)}
+.amounts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:16px 0}
+.chip{background:#2a2a2a;border:1px solid #444;border-radius:999px;padding:10px 16px;color:#fff;cursor:pointer}
+
+/* Footer */
+.site-footer{padding:32px 0;background:#111;color:#ccc;text-align:center;font-size:14px}
+
+/* Donate Overlay (8s brown -> blue) */
+.donate-overlay{
+  position:fixed; inset:0; z-index:999;
+  display:none; place-items:center;
+  background:var(--dirty); color:#fff;
+}
+.donate-overlay.show{display:grid;animation:fade-dirty-to-clean 8s ease-in forwards}
+@keyframes fade-dirty-to-clean{
+  0%{background:var(--dirty)} 100%{background:var(--clean)}
+}
+.donate-inner{
+  text-align:center; max-width:720px; margin:0 16px;
+  padding:20px; border:1px solid #2c2f34; border-radius:12px;
+  background:rgba(0,0,0,.25); backdrop-filter:blur(4px)
+}
+
+/* Newsletter Overlay */
+.newsletter-overlay{
+  position:fixed; inset:0; z-index:1000;
+  display:none; place-items:center;
+  background:rgba(0,0,0,0.65); color:#fff;
+}
+.newsletter-overlay.show{display:grid}
+.newsletter-inner{
+  text-align:left; max-width:760px; margin:0 16px;
+  padding:24px; border:1px solid var(--ink-600); border-radius:12px;
+  background:linear-gradient(180deg,#151515 0%, #0f0f0f 100%);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.newsletter-inner h2{margin:0 0 10px}
+.nl-lead{color:#eaeaea; margin:0 0 12px}
+
+/* Ripple + Confetti */
+.ripple{
+  --size:16px; --scale:20;
+  position:absolute; width:var(--size); height:var(--size);
+  border-radius:999px; transform:translate(-50%,-50%) scale(0);
+  pointer-events:none; mix-blend-mode:screen;
+  background: rgba(249,196,9,0.5); /* #f9c409 */
+  animation:ripple-out .9s ease-out forwards;
+  z-index:1201;
+}
+.ripple.ring{background:transparent;border:3px solid rgba(249,196,9,0.6)}
+@keyframes ripple-out{
+  0%{opacity:.9; transform:translate(-50%,-50%) scale(0)}
+  80%{opacity:.4}
+  100%{opacity:0; transform:translate(-50%,-50%) scale(var(--scale))}
+}
+.confetti-layer{position:fixed; inset:0; pointer-events:none; z-index:1200; overflow:hidden}
+.confetti-piece{
+  position:absolute; top:-16px; width:8px; height:12px; opacity:0;
+  animation:confetti-fall 1200ms ease-out forwards;
+}
+@keyframes confetti-fall{
+  0%{opacity:0; transform:translateY(-40px) rotate(0deg)}
+  10%{opacity:1}
+  100%{opacity:1; transform:translateY(100vh) rotate(720deg)}
+}
